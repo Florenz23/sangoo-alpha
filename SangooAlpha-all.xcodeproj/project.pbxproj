@@ -15,6 +15,9 @@
 		C0294C6C1E044BC00089EFFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0294C6A1E044BC00089EFFD /* LaunchScreen.storyboard */; };
 		C0294C771E044BC10089EFFD /* SangooAlpha_allTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0294C761E044BC10089EFFD /* SangooAlpha_allTests.swift */; };
 		C0294C821E044BC10089EFFD /* SangooAlpha_allUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0294C811E044BC10089EFFD /* SangooAlpha_allUITests.swift */; };
+		C0294C901E044CD70089EFFD /* NewUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0294C8F1E044CD70089EFFD /* NewUserData.swift */; };
+		C0294C921E044D1E0089EFFD /* MyContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0294C911E044D1E0089EFFD /* MyContentTableViewController.swift */; };
+		C0294C9C1E04CA2D0089EFFD /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0294C9B1E04CA2D0089EFFD /* ContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		C0294C7D1E044BC10089EFFD /* SangooAlpha-allUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SangooAlpha-allUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0294C811E044BC10089EFFD /* SangooAlpha_allUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SangooAlpha_allUITests.swift; sourceTree = "<group>"; };
 		C0294C831E044BC10089EFFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0294C8F1E044CD70089EFFD /* NewUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserData.swift; sourceTree = "<group>"; };
+		C0294C911E044D1E0089EFFD /* MyContentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContentTableViewController.swift; sourceTree = "<group>"; };
+		C0294C9B1E04CA2D0089EFFD /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,9 @@
 				C0294C6A1E044BC00089EFFD /* LaunchScreen.storyboard */,
 				C0294C6D1E044BC00089EFFD /* Info.plist */,
 				C0294C651E044BC00089EFFD /* SangooAlpha_all.xcdatamodeld */,
+				C0294C8F1E044CD70089EFFD /* NewUserData.swift */,
+				C0294C911E044D1E0089EFFD /* MyContentTableViewController.swift */,
+				C0294C9B1E04CA2D0089EFFD /* ContactViewController.swift */,
 			);
 			path = "SangooAlpha-all";
 			sourceTree = "<group>";
@@ -268,6 +277,9 @@
 				C0294C611E044BC00089EFFD /* ViewController.swift in Sources */,
 				C0294C5F1E044BC00089EFFD /* AppDelegate.swift in Sources */,
 				C0294C671E044BC00089EFFD /* SangooAlpha_all.xcdatamodeld in Sources */,
+				C0294C921E044D1E0089EFFD /* MyContentTableViewController.swift in Sources */,
+				C0294C901E044CD70089EFFD /* NewUserData.swift in Sources */,
+				C0294C9C1E04CA2D0089EFFD /* ContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
