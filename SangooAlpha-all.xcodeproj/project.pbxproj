@@ -18,6 +18,8 @@
 		C0294C901E044CD70089EFFD /* NewUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0294C8F1E044CD70089EFFD /* NewUserData.swift */; };
 		C0294C921E044D1E0089EFFD /* MyContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0294C911E044D1E0089EFFD /* MyContentTableViewController.swift */; };
 		C0294C9C1E04CA2D0089EFFD /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0294C9B1E04CA2D0089EFFD /* ContactViewController.swift */; };
+		C0FD77F31E059B73006FA348 /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FD77F21E059B73006FA348 /* UserDataViewController.swift */; };
+		C0FD77F51E05FA51006FA348 /* UserEditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FD77F41E05FA51006FA348 /* UserEditDataViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		C0294C8F1E044CD70089EFFD /* NewUserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserData.swift; sourceTree = "<group>"; };
 		C0294C911E044D1E0089EFFD /* MyContentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyContentTableViewController.swift; sourceTree = "<group>"; };
 		C0294C9B1E04CA2D0089EFFD /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		C0FD77F21E059B73006FA348 /* UserDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
+		C0FD77F41E05FA51006FA348 /* UserEditDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEditDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				C0294C8F1E044CD70089EFFD /* NewUserData.swift */,
 				C0294C911E044D1E0089EFFD /* MyContentTableViewController.swift */,
 				C0294C9B1E04CA2D0089EFFD /* ContactViewController.swift */,
+				C0FD77F21E059B73006FA348 /* UserDataViewController.swift */,
+				C0FD77F41E05FA51006FA348 /* UserEditDataViewController.swift */,
 			);
 			path = "SangooAlpha-all";
 			sourceTree = "<group>";
@@ -276,7 +282,9 @@
 			files = (
 				C0294C611E044BC00089EFFD /* ViewController.swift in Sources */,
 				C0294C5F1E044BC00089EFFD /* AppDelegate.swift in Sources */,
+				C0FD77F51E05FA51006FA348 /* UserEditDataViewController.swift in Sources */,
 				C0294C671E044BC00089EFFD /* SangooAlpha_all.xcdatamodeld in Sources */,
+				C0FD77F31E059B73006FA348 /* UserDataViewController.swift in Sources */,
 				C0294C921E044D1E0089EFFD /* MyContentTableViewController.swift in Sources */,
 				C0294C901E044CD70089EFFD /* NewUserData.swift in Sources */,
 				C0294C9C1E04CA2D0089EFFD /* ContactViewController.swift in Sources */,
@@ -530,6 +538,7 @@
 				C0294C881E044BC10089EFFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0294C891E044BC10089EFFD /* Build configuration list for PBXNativeTarget "SangooAlpha-allTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +547,7 @@
 				C0294C8B1E044BC10089EFFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0294C8C1E044BC10089EFFD /* Build configuration list for PBXNativeTarget "SangooAlpha-allUITests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +556,7 @@
 				C0294C8E1E044BC10089EFFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
