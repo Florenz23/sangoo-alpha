@@ -7,48 +7,70 @@
 //
 
 import UIKit
+import CoreData
 
 class MyContentTableViewController: UITableViewController {
-    var products: [NewUserData]?
-    var sendData : [String] = []
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    var contacts = [UserData]()
+    var contact: UserData?
+    var products = [NewUserData]()
+    var sendData : [String] = []
+    @IBAction func sendMyData(_ sender: Any) {
+        print("moin")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         let product1 = NewUserData()
         let product2 = NewUserData()
         
-        product1.content = "Hans"
+        product1.content = contact?.name
         product1.cellImage = "icon-about-phone"
         product1.identifier = "phone"
         
-        product2.content = "112"
+        product2.content = contact?.phone
         product2.cellImage = "icon-about-email"
         product2.identifier = "mail"
         
-        
-        
         products = [product1,product2]
     }
+    
+    func getData() {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+        request.returnsObjectsAsFaults = false
+        
+        do
+        {
+            let results = try context.fetch(request)
+            contacts = results as! [UserData]
+            contact = contacts[0]
+            //user = users[0]
+            
+        }
+        catch {
+            print ("error")
+        }
+        
+    }
+
     // set number of cells
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let p = products {
-            return p.count
-        }
-        return 0
+       
+        return products.count
     }
     // content of cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserDataCell", for: indexPath)
         
-        let product = products?[indexPath.row]
+        let product = products[indexPath.row]
         
-        if let p = product {
-            cell.textLabel?.text = p.content
-            if let i = p.cellImage {
-                cell.imageView?.image = UIImage(named: i)
-            }
-            
-        }
+        cell.textLabel?.text = product.content
+        cell.imageView?.image = UIImage(named: product.cellImage!)
+        
+        
         return cell
     }
     
@@ -60,18 +82,18 @@ class MyContentTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath)
         //cell?.selectionStyle = .none
-        let data = products?[index]
-        data?.selected = !(data?.selected)!
-        if (data?.selected)! {
+        let data = products[index]
+        data.selected = !(data.selected)!
+        if (data.selected)! {
             cell?.accessoryType = UITableViewCellAccessoryType.checkmark
         } else {
             cell?.accessoryType = UITableViewCellAccessoryType.none
         }
         var i = 0
         sendData = []
-        for data in products! {
+        for data in products {
             if data.selected! {
-                sendData.append((products?[i].identifier)!)
+                sendData.append((products[i].identifier)!)
             }
             i += 1
         }

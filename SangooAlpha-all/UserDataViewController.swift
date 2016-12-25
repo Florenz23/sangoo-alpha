@@ -11,6 +11,12 @@ import CoreData
 
 
 class UserDataViewController: UIViewController {
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var users = [UserData]()
+    //var user: UserData
+
 
     @IBOutlet weak var labelUserName: UILabel!
     
@@ -26,40 +32,20 @@ class UserDataViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     func getData() {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
-        let firstName = true
-        request.predicate = NSPredicate(format: "owner == %@", firstName as CVarArg)
-        
         request.returnsObjectsAsFaults = false
+        
         
         do
         {
             let results = try context.fetch(request)
+            users = results as! [UserData]
+            //user = users[0]
+            labelUserName.text = users[0].name
+            labelUserPhone.text = users[0].phone
             
-            if results.count > 0
-            {
-                for result in results as! [NSManagedObject]
-                {
-                    if let name = result.value(forKey: "name") as? String {
-                        labelUserName.text = name
-                        print (name)
-                    }
-                    if let name = result.value(forKey: "phone") as? String {
-                        labelUserPhone.text = name
-                        print (name)
-                    }
-                    if let name = result.value(forKey: "owner") as? Bool {
-                        print (name)
-                    }
-                }
-            }
         }
         catch {
             print ("error")
@@ -67,24 +53,21 @@ class UserDataViewController: UIViewController {
         
     }
     
-    func saveData (){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let newContact = NSEntityDescription.insertNewObject(forEntityName: "UserData", into:context)
-        
-        newContact.setValue("Adolfo", forKey: "name")
-        newContact.setValue("11288", forKey: "phone")
-        newContact.setValue(true, forKey: "owner")
-
-        do {
-            try context.save()
-            print("saved")
+        if segue.identifier == "editUserData" {
+            let v = segue.destination as! UserEditDataViewController
+            
+            v.user = users[0]
         }
-        catch {
-            print("nein")
-        }
+        
+        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
 
+
+    
+
+    
 }

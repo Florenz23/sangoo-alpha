@@ -10,71 +10,18 @@ import UIKit
 import CoreData
 
 class UserEditDataViewController: UIViewController {
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    
+    var user:UserData?
 
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldPhone: UITextField!
     @IBAction func updateDataButton(_ sender: UIButton) {
         print("moin")
-        updateData()
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getData()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    func updateData(){
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
-        let firstName = true
-        request.predicate = NSPredicate(format: "owner == %@", firstName as CVarArg)
-        
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            let list = try context.fetch(request) as? [NSManagedObject]
-            if list!.count == 0 // Check notificationId available then not save
-            {
-                let newManagedObject = NSEntityDescription.insertNewObject(forEntityName: "UserData", into: request)
-                newManagedObject.setValue("Himmler", forKey: "name")
-                newManagedObject.setValue("11", forKey: "phone")
-                newManagedObject.setValue(false, forKey: "owner")
-
-            }
-            do {
-                //try context.save()
-                try context.save()
-                print("saved")
-                getData()
-            }
-            catch {
-                print("nein")
-                
-            }
-        } catch let error as NSError {
-            // failure
-            print("Fetch failed: \(error.localizedDescription)")
-        }
-
-
-    }
-    func saveData (){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let newContact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into:context)
-        
-        newContact.setValue("Hans", forKey: "name")
+        user?.name = textFieldName.text
+        user?.phone = textFieldPhone.text
         
         do {
             try context.save()
@@ -84,50 +31,26 @@ class UserEditDataViewController: UIViewController {
             print("nein")
         }
     }
-
     
-    func getData() {
+    //var users = [UserData]()
+    //var user: UserData
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
-        let firstName = true
-        request.predicate = NSPredicate(format: "owner == %@", firstName as CVarArg)
-        
-        request.returnsObjectsAsFaults = false
-        
-        do
-        {
-            let results = try context.fetch(request)
-            
-            if results.count > 0
-            {
-                for result in results as! [NSManagedObject]
-                {
-                    if let name = result.value(forKey: "name") as? String {
-                        textFieldName.text = name
-                        print (name)
-                    }
-                    if let name = result.value(forKey: "phone") as? String {
-                        textFieldPhone.text = name
-                        print (name)
-                    }
-                    if let name = result.value(forKey: "owner") as? Bool {
-                        print (name)
-                    }
-                }
-            }
-        }
-        catch {
-            print ("error")
-        }
-        
+        textFieldName.text = user?.name
+        textFieldPhone.text = user?.phone
+    
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-
     /*
     // MARK: - Navigation
 

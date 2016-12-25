@@ -13,8 +13,8 @@ class ContactViewController: UIViewController, UITableViewDataSource,UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
-    var mgdContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var contacts = [String]()
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var contacts = [UserData]()
 
 /*
 
@@ -47,28 +47,15 @@ class ContactViewController: UIViewController, UITableViewDataSource,UITableView
     
     func getData() {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
-        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
         request.returnsObjectsAsFaults = false
+        
         
         do
         {
             let results = try context.fetch(request)
+            contacts = results as! [UserData]
             
-            if results.count > 0
-            {
-                for result in results as! [NSManagedObject]
-                {
-                    if let name = result.value(forKey: "name") as? String {
-                        contacts.append(name)
-                        print (name)
-                    }
-                }
-            }
         }
         catch {
             print ("error")
@@ -76,6 +63,8 @@ class ContactViewController: UIViewController, UITableViewDataSource,UITableView
         
     }
 
+    
+    
     func saveData (){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -103,11 +92,27 @@ class ContactViewController: UIViewController, UITableViewDataSource,UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact", for: indexPath)
         
         let contact = contacts[indexPath.row]
-        cell.textLabel!.text = contact
+        cell.textLabel!.text = contact.name
         
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showUserDetail" {
+            let v = segue.destination as! ShowContactViewController
+            
+            let indexpath = self.tableView.indexPathForSelectedRow
+            let row = indexpath?.row
+            
+            v.contact = contacts[row!]
+        }
+        
+        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+
   
 
     /*
