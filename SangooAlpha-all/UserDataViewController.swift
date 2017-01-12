@@ -16,6 +16,7 @@ class UserDataViewController: UIViewController {
     
     var users = [UserData]()
     //var user: UserData
+    @IBOutlet weak var labelFaceBook: UILabel!
 
 
     @IBOutlet weak var labelUserName: UILabel!
@@ -45,6 +46,7 @@ class UserDataViewController: UIViewController {
             //user = users[0]
             labelUserName.text = users[0].name
             labelUserPhone.text = users[0].phone
+            labelFaceBook.text = users[0].facebook
             
         }
         catch {

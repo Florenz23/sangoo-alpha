@@ -9,6 +9,14 @@
 import UIKit
 
 class ConnectViewController: UIViewController {
+    
+    @IBAction func logoutButton(_ sender: Any) {
+        print("jojo")
+        UserDefaults.standard.set(false, forKey:"isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        
+        self.performSegue(withIdentifier: "loginView", sender: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +29,13 @@ class ConnectViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        if (!isUserLoggedIn){
+            self.performSegue(withIdentifier: "loginView", sender: self)
+        }
+    }
+
 
     /*
     // MARK: - Navigation

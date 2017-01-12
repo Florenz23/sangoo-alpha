@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ShowContactViewController: UIViewController {
+class SelectUserInformationToDeliverViewController: UIViewController {
     
     var contact: UserData?
     @IBOutlet weak var nameTxtLabel: UILabel!
     @IBOutlet weak var phoneTxtLabel: UILabel!
     
+    @IBOutlet weak var faceBookTxtLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class ShowContactViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         nameTxtLabel.text = contact?.name
         phoneTxtLabel.text = contact?.phone
+        faceBookTxtLabel.text = contact?.facebook
 
     }
     

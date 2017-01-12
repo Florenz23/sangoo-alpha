@@ -16,12 +16,14 @@ class UserEditDataViewController: UIViewController {
     
     var user:UserData?
 
+    @IBOutlet weak var textFieldFaceBook: UITextField!
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldPhone: UITextField!
     @IBAction func updateDataButton(_ sender: UIButton) {
         print("moin")
         user?.name = textFieldName.text
         user?.phone = textFieldPhone.text
+        user?.facebook = textFieldFaceBook.text
         
         do {
             try context.save()
@@ -43,6 +45,7 @@ class UserEditDataViewController: UIViewController {
         
         textFieldName.text = user?.name
         textFieldPhone.text = user?.phone
+        textFieldFaceBook.text = user?.facebook
     
     }
 

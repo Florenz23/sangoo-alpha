@@ -18,7 +18,34 @@ class MyContentTableViewController: UITableViewController {
     var products = [NewUserData]()
     var sendData : [String] = []
     @IBAction func sendMyData(_ sender: Any) {
-        print("moin")
+        
+        //create new object to save the data
+        let storeDescription = NSEntityDescription.entity(forEntityName: "UserData", in: context)
+        
+        let newContact = UserData(entity: storeDescription!, insertInto: context)
+        
+        // save only what is selected
+        for data in sendData {
+            
+            if data == "phone" {
+                newContact.phone = contact?.phone
+            }
+            if data == "facebook" {
+                newContact.facebook = contact?.facebook
+            }
+        }
+        // name is always needed
+        newContact.name = contact?.name
+        
+        do {
+            try context.save()
+            print("saved")
+        }
+        catch {
+            print("nein")
+        }
+
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +53,13 @@ class MyContentTableViewController: UITableViewController {
         let product1 = NewUserData()
         let product2 = NewUserData()
         
-        product1.content = contact?.name
+        product1.content = contact?.phone
         product1.cellImage = "icon-about-phone"
         product1.identifier = "phone"
         
-        product2.content = contact?.phone
+        product2.content = contact?.facebook
         product2.cellImage = "icon-about-email"
-        product2.identifier = "mail"
+        product2.identifier = "facebook"
         
         products = [product1,product2]
     }
