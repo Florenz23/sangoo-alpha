@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreData
+
 
 class RegisterPageViewController: UIViewController {
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
@@ -48,8 +52,8 @@ class RegisterPageViewController: UIViewController {
         //Send data to server
         
         //let url = "https://sangoo.de/php/userRegister.php?email=\(userEmail)&password=\(userPassword)"
-        let path = "https://sangoo.de/php/userRegister.php?email="
-        let part1 = "&password="
+        let path = "https://sangoo.de/php/userRegister.php?userEmail="
+        let part1 = "&userPassword="
         let url = path + userEmail! + part1 + userPassword!
         let myUrl = URL(string: url)
         var request = URLRequest(url: myUrl!)
@@ -71,13 +75,14 @@ class RegisterPageViewController: UIViewController {
                     let parseJSON = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
                     //let currentConditions = parsedData["currently"] as! [String:Any]
                     
-                    print(parseJSON)
                     var resultValue = parseJSON["status"] as? String
-                    print(resultValue)
-                    
+                    var userId = parseJSON["lastInsertId"] as? Int
+                    print (userId)
                     var isUserRegistered:Bool = false
                     if(resultValue == "Success") {
                         isUserRegistered = true
+                        self.deleteAllUserDataLocally()
+                        self.saveDataInLocalDb(userId: userId!)
                     }
                     var messageToDisplay: String = parseJSON["message"] as! String!
                     if (!isUserRegistered) {
@@ -107,6 +112,41 @@ class RegisterPageViewController: UIViewController {
         
         
         
+    }
+    
+    func saveDataInLocalDb(userId: Int) {
+        
+        let storeDescription = NSEntityDescription.entity(forEntityName: "UserData", in: context)
+        
+        
+        //toDo email muss zu name geändert werden
+        let newContact = UserData(entity: storeDescription!, insertInto: context)
+        newContact.name = userEmailTextField.text
+        newContact.phone = "testPhone"
+        newContact.owner = true
+        newContact.userId = Int64(userId)
+        
+        do {
+            try context.save()
+            print("saved")
+        }
+        catch {
+            print("nein")
+        }
+    }
+    
+    func deleteAllUserDataLocally() {
+        
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+        
+        do {
+            try context.execute(request)
+            print("saved")
+        }
+        catch {
+            print("nein")
+        }
     }
     
     

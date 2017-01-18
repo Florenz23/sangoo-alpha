@@ -10,6 +10,8 @@ import UIKit
 
 class ConnectViewController: UIViewController {
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBAction func logoutButton(_ sender: Any) {
         print("jojo")
         UserDefaults.standard.set(false, forKey:"isUserLoggedIn")

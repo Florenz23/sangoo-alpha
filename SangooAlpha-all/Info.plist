@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Damit Sangoo richtig arbeiten kann, braucht es Zugriff auf deinen Standort. </string>
 </dict>
 </plist>

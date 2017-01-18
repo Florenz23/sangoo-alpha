@@ -100,7 +100,7 @@ class ContactViewController: UIViewController, UITableViewDataSource,UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showUserDetail" {
-            let v = segue.destination as! SelectUserInformationToDeliverViewController
+            let v = segue.destination as! ShowContactViewController
             
             let indexpath = self.tableView.indexPathForSelectedRow
             let row = indexpath?.row

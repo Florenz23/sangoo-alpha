@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectUserInformationToDeliverViewController: UIViewController {
+class ShowContactViewController: UIViewController {
     
     var contact: UserData?
     @IBOutlet weak var nameTxtLabel: UILabel!
