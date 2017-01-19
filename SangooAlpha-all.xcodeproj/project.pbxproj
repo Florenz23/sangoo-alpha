@@ -461,6 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 76585C57A3;
 				INFOPLIST_FILE = "SangooAlpha-all/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.florenzerstling.SangooAlpha-all";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -474,6 +475,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 76585C57A3;
 				INFOPLIST_FILE = "SangooAlpha-all/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.florenzerstling.SangooAlpha-all";
 				PRODUCT_NAME = "$(TARGET_NAME)";
