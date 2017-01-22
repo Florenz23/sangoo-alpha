@@ -10,10 +10,12 @@ import UIKit
 import CoreData
 
 
+@available(iOS 10.0, *)
 class UserDataViewController: UIViewController {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = DatabaseController.getContext()
+
     var users = [UserData]()
     //var user: UserData
     @IBOutlet weak var labelFaceBook: UILabel!

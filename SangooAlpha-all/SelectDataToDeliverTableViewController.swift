@@ -13,13 +13,16 @@ import CoreLocation
 
 class SelectDataToDeliverTableViewController: UITableViewController,CLLocationManagerDelegate {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = DatabaseController.getContext()
+
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     @IBOutlet weak var newContactTextField: UILabel!
     var contacts = [UserData]()
     var contact: UserData?
     var products = [NewUserData]()
     var sendData : [String] = []
+    @available(iOS 9.0, *)
     @IBAction func sendMyData(_ sender: Any) {
         
         //create new object to save the data
@@ -79,6 +82,7 @@ class SelectDataToDeliverTableViewController: UITableViewController,CLLocationMa
         var request = URLRequest(url: myUrl!)
         
         //URLSession.shared.dataTask(with: <#T##URL#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
+
         
         URLSession.shared.dataTask(with: request) {data, response, error in
             if error != nil {
@@ -98,7 +102,9 @@ class SelectDataToDeliverTableViewController: UITableViewController,CLLocationMa
                     if(resultValue == "Success") {
                         // Data saved successfully
                         print("GeoData are Saved in Server")
-                        self.displayMyAlertMessage(userMessage: contactName!)
+                        DispatchQueue.main.async(){
+                            self.displayMyAlertMessage(userMessage: contactName!)
+                        }
                     } else {
                         print(resultMessage)
                     }
@@ -109,6 +115,7 @@ class SelectDataToDeliverTableViewController: UITableViewController,CLLocationMa
             }
             
             }.resume()
+
     }
     
     func getUserId() -> Int {
@@ -193,9 +200,10 @@ class SelectDataToDeliverTableViewController: UITableViewController,CLLocationMa
         print("Failed to find user's location: \(error.localizedDescription)")
     }
 
+    @available(iOS 9.0, *)
     func getLocationData() {
         print("Wait for Location")
-                manager.requestLocation()
+        manager.requestLocation()
     }
     
     func setGeoSettings() {

@@ -12,7 +12,8 @@ import CoreData
 @available(iOS 10.0, *)
 class UserEditDataViewController: UIViewController {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = DatabaseController.getContext()
 
     
     var user:UserData?

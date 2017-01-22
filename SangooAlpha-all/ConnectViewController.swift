@@ -11,7 +11,9 @@ import UIKit
 @available(iOS 10.0, *)
 class ConnectViewController: UIViewController {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = DatabaseController.getContext()
+
     
     @IBAction func logoutButton(_ sender: Any) {
         print("jojo")

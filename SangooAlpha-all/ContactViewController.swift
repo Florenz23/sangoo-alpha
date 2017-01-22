@@ -13,7 +13,9 @@ class ContactViewController: UIViewController, UITableViewDataSource,UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
-    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = DatabaseController.getContext()
+
     var contacts = [UserData]()
 
 /*
@@ -66,9 +68,10 @@ class ContactViewController: UIViewController, UITableViewDataSource,UITableView
     
     
     func saveData (){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = DatabaseController.getContext()
+
+        //let context = appDelegate.persistentContainer.viewContext
         
         let newContact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into:context)
         

@@ -21,6 +21,8 @@
 		C043771E1E0FD9AD002018CF /* ShowContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C043771D1E0FD9AC002018CF /* ShowContactViewController.swift */; };
 		C04377201E0FE0F1002018CF /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C043771F1E0FE0F1002018CF /* ConnectViewController.swift */; };
 		C04377221E0FEDBF002018CF /* SendDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04377211E0FEDBF002018CF /* SendDataViewController.swift */; };
+		C0553BC01E311ACE003F650F /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0553BBF1E311ACE003F650F /* DatabaseController.swift */; };
+		C0553BC21E312956003F650F /* xCheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0553BC11E312956003F650F /* xCheckTableViewController.swift */; };
 		C0B05BC51E253793004F7032 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B05BC41E253793004F7032 /* UserLoginViewController.swift */; };
 		C0B05BC71E2537B4004F7032 /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B05BC61E2537B4004F7032 /* UserRegisterViewController.swift */; };
 		C0FD77F31E059B73006FA348 /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FD77F21E059B73006FA348 /* UserDataViewController.swift */; };
@@ -65,6 +67,8 @@
 		C043771D1E0FD9AC002018CF /* ShowContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowContactViewController.swift; sourceTree = "<group>"; };
 		C043771F1E0FE0F1002018CF /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		C04377211E0FEDBF002018CF /* SendDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendDataViewController.swift; sourceTree = "<group>"; };
+		C0553BBF1E311ACE003F650F /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		C0553BC11E312956003F650F /* xCheckTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = xCheckTableViewController.swift; sourceTree = "<group>"; };
 		C0B05BC41E253793004F7032 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		C0B05BC61E2537B4004F7032 /* UserRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
 		C0FD77F21E059B73006FA348 /* UserDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				C04377211E0FEDBF002018CF /* SendDataViewController.swift */,
 				C0B05BC41E253793004F7032 /* UserLoginViewController.swift */,
 				C0B05BC61E2537B4004F7032 /* UserRegisterViewController.swift */,
+				C0553BBF1E311ACE003F650F /* DatabaseController.swift */,
+				C0553BC11E312956003F650F /* xCheckTableViewController.swift */,
 			);
 			path = "SangooAlpha-all";
 			sourceTree = "<group>";
@@ -297,10 +303,12 @@
 			files = (
 				C0294C611E044BC00089EFFD /* ViewController.swift in Sources */,
 				C043771E1E0FD9AD002018CF /* ShowContactViewController.swift in Sources */,
+				C0553BC21E312956003F650F /* xCheckTableViewController.swift in Sources */,
 				C0294C5F1E044BC00089EFFD /* AppDelegate.swift in Sources */,
 				C0B05BC51E253793004F7032 /* UserLoginViewController.swift in Sources */,
 				C0FD77F51E05FA51006FA348 /* UserEditDataViewController.swift in Sources */,
 				C0294C671E044BC00089EFFD /* SangooAlpha_all.xcdatamodeld in Sources */,
+				C0553BC01E311ACE003F650F /* DatabaseController.swift in Sources */,
 				C04377201E0FE0F1002018CF /* ConnectViewController.swift in Sources */,
 				C0FD77F31E059B73006FA348 /* UserDataViewController.swift in Sources */,
 				C0294C921E044D1E0089EFFD /* SelectDataToDeliverTableViewController.swift in Sources */,
@@ -461,7 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 76585C57A3;
 				INFOPLIST_FILE = "SangooAlpha-all/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.florenzerstling.SangooAlpha-all";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -475,7 +483,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 76585C57A3;
 				INFOPLIST_FILE = "SangooAlpha-all/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.florenzerstling.SangooAlpha-all";
 				PRODUCT_NAME = "$(TARGET_NAME)";

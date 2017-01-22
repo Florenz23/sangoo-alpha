@@ -12,7 +12,8 @@ import CoreData
 
 class RegisterPageViewController: UIViewController {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = DatabaseController.getContext()
 
     
     @IBOutlet weak var repeatPasswordTextField: UITextField!
@@ -141,7 +142,7 @@ class RegisterPageViewController: UIViewController {
         let request = NSBatchDeleteRequest(fetchRequest: fetch)
         
         do {
-            try context.execute(request)
+           try context.execute(request)
             print("saved")
         }
         catch {
