@@ -23,8 +23,10 @@
 		C04377221E0FEDBF002018CF /* SendDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04377211E0FEDBF002018CF /* SendDataViewController.swift */; };
 		C0553BC01E311ACE003F650F /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0553BBF1E311ACE003F650F /* DatabaseController.swift */; };
 		C0553BC21E312956003F650F /* xCheckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0553BC11E312956003F650F /* xCheckTableViewController.swift */; };
+		C059AC711E37511B00BE0DAC /* UserDbCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059AC701E37511B00BE0DAC /* UserDbCommunication.swift */; };
 		C0B05BC51E253793004F7032 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B05BC41E253793004F7032 /* UserLoginViewController.swift */; };
 		C0B05BC71E2537B4004F7032 /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B05BC61E2537B4004F7032 /* UserRegisterViewController.swift */; };
+		C0B612121E37AFB1000D27E9 /* LibCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B612111E37AFB1000D27E9 /* LibCoreData.swift */; };
 		C0FD77F31E059B73006FA348 /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FD77F21E059B73006FA348 /* UserDataViewController.swift */; };
 		C0FD77F51E05FA51006FA348 /* UserEditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FD77F41E05FA51006FA348 /* UserEditDataViewController.swift */; };
 /* End PBXBuildFile section */
@@ -69,8 +71,10 @@
 		C04377211E0FEDBF002018CF /* SendDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendDataViewController.swift; sourceTree = "<group>"; };
 		C0553BBF1E311ACE003F650F /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		C0553BC11E312956003F650F /* xCheckTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = xCheckTableViewController.swift; sourceTree = "<group>"; };
+		C059AC701E37511B00BE0DAC /* UserDbCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDbCommunication.swift; sourceTree = "<group>"; };
 		C0B05BC41E253793004F7032 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		C0B05BC61E2537B4004F7032 /* UserRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
+		C0B612111E37AFB1000D27E9 /* LibCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibCoreData.swift; sourceTree = "<group>"; };
 		C0FD77F21E059B73006FA348 /* UserDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		C0FD77F41E05FA51006FA348 /* UserEditDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEditDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,8 +144,10 @@
 				C04377211E0FEDBF002018CF /* SendDataViewController.swift */,
 				C0B05BC41E253793004F7032 /* UserLoginViewController.swift */,
 				C0B05BC61E2537B4004F7032 /* UserRegisterViewController.swift */,
+				C059AC701E37511B00BE0DAC /* UserDbCommunication.swift */,
 				C0553BBF1E311ACE003F650F /* DatabaseController.swift */,
 				C0553BC11E312956003F650F /* xCheckTableViewController.swift */,
+				C0B612111E37AFB1000D27E9 /* LibCoreData.swift */,
 			);
 			path = "SangooAlpha-all";
 			sourceTree = "<group>";
@@ -312,10 +318,12 @@
 				C04377201E0FE0F1002018CF /* ConnectViewController.swift in Sources */,
 				C0FD77F31E059B73006FA348 /* UserDataViewController.swift in Sources */,
 				C0294C921E044D1E0089EFFD /* SelectDataToDeliverTableViewController.swift in Sources */,
+				C0B612121E37AFB1000D27E9 /* LibCoreData.swift in Sources */,
 				C0294C901E044CD70089EFFD /* NewUserData.swift in Sources */,
 				C0294C9C1E04CA2D0089EFFD /* ContactViewController.swift in Sources */,
 				C0B05BC71E2537B4004F7032 /* UserRegisterViewController.swift in Sources */,
 				C04377221E0FEDBF002018CF /* SendDataViewController.swift in Sources */,
+				C059AC711E37511B00BE0DAC /* UserDbCommunication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
