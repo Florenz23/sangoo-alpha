@@ -98,7 +98,7 @@ class RegisterPageViewController: UIViewController {
                 do {
                     let parseJSON = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
                     if self.checkIfUserSuccessfullyRegistered(parseJSON: parseJSON) {
-                        let userId = parseJSON["lastInsertId"] as? Int
+                        let userId = parseJSON["lastInsertId"] as! Int!
                         self.triggerDbActions(userId: userId!)
                         messageToDisplay = parseJSON["message"] as! String!
                     } else {
@@ -151,8 +151,8 @@ class RegisterPageViewController: UIViewController {
         
         //toDo email muss zu name geändert werden
         let newContact = UserData(entity: storeDescription!, insertInto: context)
-        newContact.name = userEmailTextField.text
-        newContact.phone = "testPhone"
+        newContact.userName = userEmailTextField.text
+        newContact.phoneNumber = "testPhone"
         newContact.owner = true
         newContact.userId = Int64(userId)
         

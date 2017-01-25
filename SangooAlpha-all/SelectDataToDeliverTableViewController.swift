@@ -34,10 +34,10 @@ class SelectDataToDeliverTableViewController: UITableViewController,CLLocationMa
         for data in sendData {
             
             if data == "phone" {
-                newContact.phone = contact?.phone
+                newContact.phoneNumber = contact?.phoneNumber
             }
             if data == "facebook" {
-                newContact.facebook = contact?.facebook
+                newContact.faceBookUrl = contact?.faceBookUrl
             }
         }
         
@@ -79,7 +79,7 @@ class SelectDataToDeliverTableViewController: UITableViewController,CLLocationMa
         let url2 = longString + part2 + latString
         let url = url1 + url2
         let myUrl = URL(string: url)
-        var request = URLRequest(url: myUrl!)
+        let request = URLRequest(url: myUrl!)
         
         //URLSession.shared.dataTask(with: <#T##URL#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
 
@@ -94,8 +94,8 @@ class SelectDataToDeliverTableViewController: UITableViewController,CLLocationMa
                     //let currentConditions = parsedData["currently"] as! [String:Any]
                     
                     
-                    var resultValue = parseJSON["status"] as? String
-                    var resultMessage = parseJSON["message"] as? String
+                    let resultValue = parseJSON["status"] as? String
+                    let resultMessage = parseJSON["message"] as? String
                     var contactName = parseJSON["name"] as? String
                     print(contactName)
                     
@@ -141,11 +141,11 @@ class SelectDataToDeliverTableViewController: UITableViewController,CLLocationMa
         let product1 = NewUserData()
         let product2 = NewUserData()
         
-        product1.content = contact?.phone
+        product1.content = contact?.phoneNumber
         product1.cellImage = "icon-about-phone"
         product1.identifier = "phone"
         
-        product2.content = contact?.facebook
+        product2.content = contact?.faceBookUrl
         product2.cellImage = "icon-about-email"
         product2.identifier = "facebook"
         
@@ -189,9 +189,6 @@ class SelectDataToDeliverTableViewController: UITableViewController,CLLocationMa
             
             // show dot
             let coords = location.coordinate
-            print(location)
-            let xValue = coords.latitude
-            let yValue = coords.longitude
             sendGeoDataToServer(geoData: coords)
         }
     }

@@ -46,9 +46,9 @@ class UserDataViewController: UIViewController {
             let results = try context.fetch(request)
             users = results as! [UserData]
             //user = users[0]
-            labelUserName.text = users[0].name
-            labelUserPhone.text = users[0].phone
-            labelFaceBook.text = users[0].facebook
+            labelUserName.text = users[0].userName
+            labelUserPhone.text = users[0].phoneNumber
+            labelFaceBook.text = users[0].faceBookUrl
             
         }
         catch {

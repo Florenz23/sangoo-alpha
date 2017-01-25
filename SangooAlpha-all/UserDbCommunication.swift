@@ -25,7 +25,6 @@ class UserDbCommunication {
         let path = "https://sangoo.de/php/getUserData.php?userEmail="
         let url = path + userEmail
         let myUrl = URL(string: url)
-        print(url)
         let request = URLRequest(url: myUrl!)
         return request
         
@@ -34,13 +33,11 @@ class UserDbCommunication {
     func sendDataToServer(request : URLRequest) -> Void {
         
         URLSession.shared.dataTask(with: request) {data, response, error in
-            var messageToDisplay : String
             
             if error != nil {
                 print(error!)
             } else {
                 do {
-                    print(data)
                     let parseJSON = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String:Any]
                    
                     if self.checkIfDbActionSuccessfullyExecuted(parseJSON: parseJSON) {
@@ -79,7 +76,6 @@ class UserDbCommunication {
         }
         LibCoreData().deleteAllUserDataLocally()
         LibCoreData().saveOwnUserData(userData : resultValue as! [String : Any])
-        print(resultValue)
         return resultValue
         
     }

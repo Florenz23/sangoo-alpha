@@ -28,9 +28,9 @@ class ShowContactViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        nameTxtLabel.text = contact?.name
-        phoneTxtLabel.text = contact?.phone
-        faceBookTxtLabel.text = contact?.facebook
+        nameTxtLabel.text = contact?.userName
+        phoneTxtLabel.text = contact?.phoneNumber
+        faceBookTxtLabel.text = contact?.faceBookUrl
 
     }
     

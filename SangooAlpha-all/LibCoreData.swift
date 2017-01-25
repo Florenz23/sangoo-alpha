@@ -21,12 +21,18 @@ class LibCoreData {
         
         //toDo email muss zu name geändert werden
         let newContact = UserData(entity: storeDescription!, insertInto: context)
-        newContact.name = userData["userName"] as! String?
-        newContact.phone = userData["phoneNumber"] as! String?
+        newContact.phoneNumber = userData["phoneNumber"] as! String?
+        newContact.lastName = userData["lastName"] as! String?
+        newContact.userName = userData["userName"] as! String?
+        newContact.userAddress = userData["userAddress"] as! String?
+        newContact.userEmail = userData["userEmail"] as! String?
+        newContact.firstName = userData["firstName"] as! String?
         newContact.owner = true
-        newContact.facebook = userData["faceBookUrl"] as! String?
-        //newContact.userId = Int64(userData["userId"]!)!
-        
+        guard let userId = userData["userId"] as! Int? else {
+            return
+        }
+        newContact.userId = Int64(userId)
+
         do {
             try context.save()
             print("saved")

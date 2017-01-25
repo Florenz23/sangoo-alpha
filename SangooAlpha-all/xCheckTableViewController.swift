@@ -69,8 +69,8 @@ class xCheckTableViewController: UITableViewController {
         store = UserData(entity: storeDescription!, insertInto: moContext)
         
         
-        store?.name = "jo"
-        store?.facebook = "jo"
+        store?.userName = "jo"
+        store?.faceBookUrl = "jo"
                
         do {
             try moContext.save()
@@ -102,8 +102,8 @@ class xCheckTableViewController: UITableViewController {
         // Configure the cell...
         
         let store = stores[indexPath.row]
-        cell.textLabel?.text = store.name
-        cell.detailTextLabel?.text = store.facebook
+        cell.textLabel?.text = store.userName
+        cell.detailTextLabel?.text = store.faceBookUrl
         
         return cell
     }

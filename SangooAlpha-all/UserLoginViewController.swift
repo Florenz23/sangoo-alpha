@@ -51,16 +51,12 @@ class LoginViewController: UIViewController {
     
     
     func getJson(data: Data, userEmail: String) {
-        var userData : [String:String]
-        
         do {
             
             let parseJSON = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
             if checkIfPasswordIsCorrect(parseJSON: parseJSON) {
                     self.setLocalCookie()
-                    userData = UserDbCommunication().getUserData(userEmail: userEmail)
-                    LibCoreData().deleteAllUserDataLocally()
-                    LibCoreData().saveOwnUserData(userData : userData)
+                    UserDbCommunication().getUserData(userEmail: userEmail)
                 OperationQueue.main.addOperation {
                     self.changeToProtectedView()
                 }
@@ -95,7 +91,6 @@ class LoginViewController: UIViewController {
         
         
         let resultValue = parseJSON["status"] as? String
-        print(resultValue!)
         
         if(resultValue == "Success") {
             

@@ -23,9 +23,9 @@ class UserEditDataViewController: UIViewController {
     @IBOutlet weak var textFieldPhone: UITextField!
     @IBAction func updateDataButton(_ sender: UIButton) {
         print("moin")
-        user?.name = textFieldName.text
-        user?.phone = textFieldPhone.text
-        user?.facebook = textFieldFaceBook.text
+        user?.userName = textFieldName.text
+        user?.phoneNumber = textFieldPhone.text
+        user?.faceBookUrl = textFieldFaceBook.text
         
         do {
             try context.save()
@@ -45,9 +45,9 @@ class UserEditDataViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        textFieldName.text = user?.name
-        textFieldPhone.text = user?.phone
-        textFieldFaceBook.text = user?.facebook
+        textFieldName.text = user?.userName
+        textFieldPhone.text = user?.phoneNumber
+        textFieldFaceBook.text = user?.faceBookUrl
     
     }
 

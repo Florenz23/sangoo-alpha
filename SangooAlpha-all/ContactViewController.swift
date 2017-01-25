@@ -95,7 +95,7 @@ class ContactViewController: UIViewController, UITableViewDataSource,UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact", for: indexPath)
         
         let contact = contacts[indexPath.row]
-        cell.textLabel!.text = contact.name
+        cell.textLabel!.text = contact.userName
         
         return cell
     }
